@@ -3,7 +3,7 @@ public class PrivateRental extends Customer{
     String driversLicenceNumber;
     String driverSinceDate;
 
-
+    // Dette er vores constructor til at lave en instans af private rental klassen.
     public PrivateRental(String name, String address, int postNumber,
                          String city, String phoneNumber, String email, String driversLicenceNumber, String driverSinceDate){
         super(name, address, postNumber, city, phoneNumber, email);
@@ -11,6 +11,7 @@ public class PrivateRental extends Customer{
         this.driverSinceDate = driverSinceDate;
     }
 
+    // Vores ToString metode, der gør det muligt at printe. Vi bruger super.toString fordi vi bruger CustomersToString.
     public String toString(){
         String customerToString = "Private Rental \n" + super.toString();
 
