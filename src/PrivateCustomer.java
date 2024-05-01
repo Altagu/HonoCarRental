@@ -1,10 +1,10 @@
-public class PrivateRental extends Customer{
+public class PrivateCustomer extends Customer{
 
     String driversLicenceNumber;
     String driverSinceDate;
 
     // Dette er vores constructor til at lave en instans af private rental klassen.
-    public PrivateRental(String name, String address, int postNumber,
+    public PrivateCustomer(String name, String address, int postNumber,
                          String city, String phoneNumber, String email, String driversLicenceNumber, String driverSinceDate){
         super(name, address, postNumber, city, phoneNumber, email);
         this.driversLicenceNumber = driversLicenceNumber;

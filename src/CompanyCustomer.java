@@ -1,11 +1,11 @@
-public class CompanyRental extends Customer{
+public class CompanyCustomer extends Customer{
 
     String companyName;
     String companyAddress;
     String companyPhoneNumber;
     int CRN;
 
-    public CompanyRental(String name, String address, int postNumber,
+    public CompanyCustomer(String name, String address, int postNumber,
                          String city, String phoneNumber, String email, String companyName,
                          String companyAddress, String companyPhoneNumber, int CRN){
         super(name, address, postNumber, city, phoneNumber, email);
