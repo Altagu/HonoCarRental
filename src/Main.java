@@ -11,21 +11,24 @@ public class Main {
 
     // Switchen der bruges til metoder
     private static void menu() {
-        System.out.println("1. Create car\n2. Print carlist\n3. Create customer \n4. Print customerlist");
+        System.out.println("1. Create car\n2. Print carlist\n3. Create customer \n4. Print customerlist \n5. New rental \n6. Exit");
         switch (sc.nextInt()) {
             case 1:
                 createCar();
                 menu();
             case 2:
-                printCarList();
+                //printCarList();
                 menu();
             case 3:
-                //createRental();
                 createCustomer();
                 menu();
             case 4:
                 printCustomerList();
                 menu();
+            case 5:
+                newRental();
+            case 6:
+                System.exit(1);
             default:
         }
     }//Afslutning af menu();
@@ -128,18 +131,84 @@ public class Main {
         return car;
     }//Afslutning af rentCar();
 
+    /* Her læser vi fra Cars.txt. Vi bruger bufferedReader fordi det er mere effektivt.
+    Bufferen læser hele filen på en gang og ikke linje for linje.
+    Derudover bruger vi lineSplit til at splitte dataen mellem kommaer.
+     */
+    private static void readCarData() {
+        try (BufferedReader br = new BufferedReader(new FileReader("Cars.txt"))) {
+            String line;
+            // Her bruger vi != null fordi tomme linjer ikke skal læses ind som null.
+            while ((line = br.readLine()) != null) {
+                String[] parts = line.split(", ");
+                String brandModel = parts[0];
+                String fuelType = parts[1];
+                String nrPlate = parts[2];
+                String regDate = parts[3];
+                int kmDriven = Integer.parseInt(parts[4]);
+                Car car = new Car(brandModel, fuelType, nrPlate, regDate, kmDriven);
+                carList.add(car);
+            }
+        } catch (IOException e) {
+            System.out.println("An error occurred while reading Cars.txt: " + e.getMessage());
+        }
+    }
+
+    //Bruges kun til tests (med mindre data er læst ind fra fil)
     private static void printCarList() {
         for (Car car : carList) {
             System.out.println(car);
         }
     }//Afslutning af printCarList();
 
+    //Bruges kun til tests (med mindre data er læst ind fra fil)
     private static void printCustomerList() {
         for (Customer customer : customerList) {
             System.out.println(customer);
         }
     }//Afslutning af printCustomerList();
+
+    private static void newRental() {
+        System.out.println("Select a customer:");
+        //Læs indhold fra filer ind i Car og customer array list (HUSK TYPE)
+        //Ellers er der ikke noget indhold i vores runtime data
+        printCustomerList();
+        int customerIndex = sc.nextInt();
+        sc.nextLine();
+        if (customerIndex >= 0 && customerIndex < customerList.size()) {
+            Customer selectedCustomer = customerList.get(customerIndex);
+
+            readCarData();
+            System.out.println("Select a car:");
+            printCarList();
+            int carIndex = sc.nextInt();
+            sc.nextLine(); // Consume newline
+            if (carIndex >= 0 && carIndex < carList.size()) {
+                Car selectedCar = carList.get(carIndex);
+
+                // Create a new rental with the selected customer and car
+                Rental newRental = new Rental(selectedCustomer, selectedCar);
+
+                // Perform additional actions related to the rental if needed
+
+                System.out.println("New rental created: " + newRental);
+            } else {
+                System.out.println("Invalid car selection.");
+            }
+        } else {
+            System.out.println("Invalid customer selection.");
+        }
+    }
 }
     /*lav en rental
     laver vi en kunde
     tilføjer en nuværende bil fra listen*/
+
+
+/*Tilføje bil: tage input -> lav til bil object ->  skriv til fil
+* Tilføje kunde: tage input -> lav til kunde object ->  skriv til fil
+*
+* Tilføje rental: læs kunder og biler fra fil -> skriv til array lists ->
+* print list -> tag input fra consol(valg af kunde og bil) ->
+* lav rental objekt med bil og kunde -> skriv til fil
+* */

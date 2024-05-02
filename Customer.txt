@@ -1,0 +1,8 @@
+Private Rental 
+Name: w
+Address: w
+post number: 3 City: w
+phone number: 3
+email: w
+drivers license number: 1
+driver since date: 3
