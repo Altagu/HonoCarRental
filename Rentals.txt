@@ -1,0 +1,7 @@
+
+Rental Details: 
+Customer: 3, Elon, sejeland, 1337, Texas, 12345, @, Tesla, Sejeland2, 12345, 123456, C
+Car: 11, Tesla, ggd, grgd, gdg, 5353
+Rental Details: 
+Customer: 1, Jens, w, 3, w, 3, w, 1, 1, P
+Car: 5, Mercedes-Benz C-Class, Gasoline, MNO345, 2017-3, 105000

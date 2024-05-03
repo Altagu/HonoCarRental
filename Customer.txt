@@ -1,8 +1,3 @@
-Private Rental 
-Name: w
-Address: w
-post number: 3 City: w
-phone number: 3
-email: w
-drivers license number: 1
-driver since date: 3
+1, Jens, w, 3, w, 3, w, 1, 1, P
+2, henrik, r, 3, r, 3, r, r, r, 3, 3, C3, bob, her, 2000, KBH, 24266543, @, 435gg56, 3455, P
+3, Elon, sejeland, 1337, Texas, 12345, @, Tesla, Sejeland2, 12345, 123456, C

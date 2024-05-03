@@ -6,19 +6,21 @@ public class Car {
     private int kmDriven;
     public String info = " ";
 
-    public Car(String brandModel, String fuelType, String nrPlate, String regDate, int kmDriven) {
+    private int id;
+    public Car(String brandModel, String fuelType, String nrPlate, String regDate, int kmDriven, int id) {
         this.brandModel = brandModel;
         this.fuelType = fuelType;
         this.nrPlate = nrPlate;
         this.regDate = regDate;
         this.kmDriven = kmDriven;
+        this.id = id;
     }
     public String getBrandModel() {
         return brandModel;
     }
     @Override
     public String toString() {
-        return brandModel + " " + fuelType + " " + nrPlate + " " + regDate + " " + kmDriven + "km";
+        return id + ", " + brandModel + ", " + fuelType + ", " + nrPlate + ", " + regDate + ", " + kmDriven;
     }
     public String getFuelType(){
         return this.fuelType;
@@ -31,5 +33,8 @@ public class Car {
     }
     public int getKmDriven(){
         return this.kmDriven;
+    }
+    public int getId() {
+        return id;
     }
 }

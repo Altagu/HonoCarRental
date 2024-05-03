@@ -22,4 +22,9 @@ public class Rental {
     public void setCar(Car car) {
         this.car = car;
     }
+
+    public String toString() {
+        return "Rental Details: \n" + "Customer: " + customer + "\n" +
+                "Car: " + car;
+    }
 }

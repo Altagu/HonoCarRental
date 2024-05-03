@@ -6,9 +6,9 @@ public class CompanyCustomer extends Customer{
     int CRN;
 
     public CompanyCustomer(String name, String address, int postNumber,
-                         String city, String phoneNumber, String email, String companyName,
+                         String city, String phoneNumber, String email, int id, String companyName,
                          String companyAddress, String companyPhoneNumber, int CRN){
-        super(name, address, postNumber, city, phoneNumber, email);
+        super(name, address, postNumber, city, phoneNumber, email, id);
 
         this.companyName = companyName;
         this.companyAddress = companyAddress;
@@ -17,10 +17,10 @@ public class CompanyCustomer extends Customer{
     }
 
     public String toString(){
-        String customerToString = "Company Rental\n" + super.toString();
+        String customerToString = super.toString();
 
-        customerToString += "company name: " + companyName + "\ncompany address: " + companyAddress
-                + "\ncompany phone number: " + companyPhoneNumber + "\nCRN: " + CRN + "\n";
+        customerToString += ", " + companyName + ", " + companyAddress
+                + ", " + companyPhoneNumber + ", " + CRN + ", C";
 
         return customerToString;
     }
